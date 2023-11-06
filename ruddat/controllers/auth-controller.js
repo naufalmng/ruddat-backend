@@ -1,5 +1,5 @@
 import { ResponseError } from "../error/ResponseError.js";
-import { registerUserValidation } from "../validations/user-validation.js";
+import { registerUserValidation, loginValidation } from "../validations/user-validation.js";
 import { prismaClient } from "../application/database.js";
 import bcrypt from "bcrypt";
 import {
@@ -7,7 +7,6 @@ import {
   generateRefreshToken,
   verifyRefreshToken,
 } from "../services/jwt-service.js";
-import { loginValidation } from "../validations/login-validation.js";
 
 export const register = async (req, res, next) => {
   try {

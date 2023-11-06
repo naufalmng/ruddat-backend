@@ -10,4 +10,18 @@ const createTestUser = async () => {
     }
   })
 }
-export { createTestUser }
+const removeTestUser = async () => {
+  await prismaClient.user.deleteMany({
+    where: {
+      email: 'testing@gmailcom'
+    }
+  })
+}
+const getTestUser = async () => {
+  return await prismaClient.user.findUnique({
+    where: {
+      email: 'testing@gmailcom'
+    }
+  })
+}
+export { createTestUser, removeTestUser, getTestUser }

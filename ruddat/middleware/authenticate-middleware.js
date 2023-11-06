@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { prismaClient } from "../application/database.js";
 import { ResponseError } from "../error/ResponseError.js";
 
-export const authenticate = async (req, res, next) => {
+export const authenticateMiddleware = async (req, res, next) => {
   try {
     const accessTokenHeader = req.headers["authorization"];
     if (!accessTokenHeader) throw new ResponseError(401, "Unauthorized");
